@@ -1,0 +1,32 @@
+{
+    "posts": [
+        {
+            "ID": "",
+            "Service": "AWS Athena",
+            "Customer Activity": "Account Management",
+            "Related Controls": [
+                "AC-02",
+                "AC-05",
+                "AC-06",
+                "IA-03"
+            ],
+            "Related Families": [
+                "Access Control",
+                "Identification and Authentication"
+            ],
+            "Customer Responsibility": "By default, AWS Identity and Access Management (IAM) users don't have permission to create or modify Athena resources, or perform tasks using the Athena API. To allow IAM users to create or modify resources and perform tasks, customers are responsible for leveraging IAM policies that grant IAM users permissions for the specific resources such as Athena and API actions they'll need to use, and then attach those policies to the IAM users or groups that require those permissions. Athena customers are responsible for using AWS Identity and Access Management (IAM) to create an IAM user with an attached policy to enable Athena permissions. Optionally, customers can choose to create custom policies to attach to the role. Customers can then add administrators to the role with the ability to invoke API's for Athena administration in accordance with organization-defined role-based access and least privilege principles.",
+            "Supporting Service/Feature": "IAM",
+            "Additional Controls for Customer Consideration": ""
+        }
+    ],
+    "comments": [
+        {
+            "id": 1,
+            "body": "some comment",
+            "postId": 1
+        }
+    ],
+    "profile": {
+        "name": "typicode"
+    }
+}
