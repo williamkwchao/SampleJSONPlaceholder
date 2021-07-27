@@ -1,22 +1,242 @@
 {
     "posts": [
         {
-            "ID": "",
-            "Service": "AWS Athena",
+            "Customer Activity": "Activation",
+            "Related Controls": "Not Applicable",
+            "Customer Responsibility": "AWS customers can start using the Amazon ECR service via AWS Management Console or Command Line Interface (CLI). Customers must also create an IAM user so that the service can determine whether you have permission to access its resources. \r\n\r\nPlease refer to https://docs.aws.amazon.com/AmazonECR/latest/userguide/get-set-up-for-amazon-ecr.html for more information regarding activation.",
+            "Supporting Service/Feature": "",
+            "Additional Controls for Customer Consideration": ""
+            
+        },
+        {
+            "Customer Activity": "Control Interface",
+            "Related Controls": "AC-02",
+            "Customer Responsibility": "Customers can access Amazon ECR via AWS Management Console, Command Line Interface (CLI), AWS CDK, Amazon ECR API's.  Access to Amazon ECR requires IAM credentials. Those credentials must have permission to access AWS resources, such as an Container Registry resources.\r\n\r\nECR can also be accessed using Docker client or any other OCI client once the user gets an authentication token using the ECR API. For more information, refer to https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-pull-ecr-image.html and https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html",
+            "Supporting Service/Feature": "",
+            "Additional Controls for Customer Consideration": "IA-03\r\nSC-23"
+            
+        },
+        {
+            "Customer Activity": "Data Flow Enforcement",
+            "Related Controls": "AC-04",
+            "Customer Responsibility": "The AWS shared responsibility model applies to data protection in Amazon ECR. As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content hosted on this infrastructure, including performing the security configuration and management tasks for the AWS services you use. For information about data privacy, see Data Privacy FAQ.\r\n\r\nAWS strongly recommends that you never put sensitive identifying information, such as your customers' account numbers, into free-form fields such as a Name field. This includes when you work with Amazon ECR or other AWS services using the console, API, AWS CLI, or AWS SDKs. Any data that you enter into Amazon ECR or other services might get picked up for inclusion in diagnostic logs. When you provide a URL to an external server, don't include credentials information in the URL to validate your request to that server.",
+            "Supporting Service/Feature": "",
+            "Additional Controls for Customer Consideration": "AC-04 (05)\r\nAC-04 (08)\r\nAC-04 (10)\r\nAC-04 (12)\r\nAC-04 (14)\r\nAC-16"
+            
+        },
+        {
+            "Customer Activity": "Configuration Baselines and Software",
+            "Related Controls": "CM-02\r\nCM-02 (01)\r\nCM-02 (02)\r\nCM-02 (03)\r\nCM-02 (07)",
+            "Customer Responsibility": "Amazon ECR customers are responsible for establishing security and configuration baselines for Amazon ECR image configurations within their ability to control and in accordance with their organizational requirements. ",
+            "Supporting Service/Feature": "Amazon ECR - Image Scanning",
+            "Additional Controls for Customer Consideration": "AC-06 (08)\r\nAT-03 (03)\r\nCM-06\r\nCM-07 (05)\r\nCM-11\r\nMA-03\r\nMA-03 (01)\r\nSI-07"
+            
+        },
+        {
+            "Customer Activity": "Operating System/ Container Images",
+            "Related Controls": "CM-03\r\nCM-06",
+            "Customer Responsibility": "AWS prohibits customers from accessing or configuring the operating systems of underlying compute instances. Amazon ECR customers are responsible for managing the containers that are stored/deployed via ECR. Customers can enable Lifecycle policies to manage the lifecycle of the images in your repositories. Customers can define rules which result in the removal of unused images which can be tested before applying to their repository.  ",
+            "Supporting Service/Feature": "Amazon ECR - Lifecycle Policies",
+            "Additional Controls for Customer Consideration": "AC-06 (05)\r\nAC-07\r\nAC-11\r\nCM-02\r\nCM-03 (02)\r\nCM-04\r\nCM-05\r\nSA-11\r\n"
+            
+        },
+        {
+            "Customer Activity": "Inventory",
+            "Related Controls": "CM-03\r\nCM-08",
+            "Customer Responsibility": "Amazon ECR customers can gain visibility of the images that are stored within ECR Repositories. Customers have the ability to tag the images to categorize resources. Customers are responsible for maintaining and documenting inventory of ECR images if applicable to their organizational requirements. ",
+            "Supporting Service/Feature": "",
+            "Additional Controls for Customer Consideration": "SA-12"
+            
+        },
+        {
             "Customer Activity": "Account Management",
-            "Related Controls": [
-                "AC-02",
-                "AC-05",
-                "AC-06",
-                "IA-03"
-            ],
-            "Related Families": [
-                "Access Control",
-                "Identification and Authentication"
-            ],
-            "Customer Responsibility": "By default, AWS Identity and Access Management (IAM) users don't have permission to create or modify Athena resources, or perform tasks using the Athena API. To allow IAM users to create or modify resources and perform tasks, customers are responsible for leveraging IAM policies that grant IAM users permissions for the specific resources such as Athena and API actions they'll need to use, and then attach those policies to the IAM users or groups that require those permissions. Athena customers are responsible for using AWS Identity and Access Management (IAM) to create an IAM user with an attached policy to enable Athena permissions. Optionally, customers can choose to create custom policies to attach to the role. Customers can then add administrators to the role with the ability to invoke API's for Athena administration in accordance with organization-defined role-based access and least privilege principles.",
+            "Related Controls": "AC-02\r\nAC-05\r\nAC-06\r\nIA-03",
+            "Customer Responsibility": "Amazon ECR is integrated with IAM to provide ability to securely control access to Amazon ECR including controlling who is authenticated (signed in) and authorized (has permissions) to use the services. By default, AWS Identity and Access Management (IAM) users don't have permission to create or modify Amazon ECR resources, or perform tasks using the Amazon ECR API. To allow IAM users to create or modify resources and perform tasks, customers are responsible for leveraging IAM policies that grant IAM users permissions for the specific resources such as Amazon ECR and API actions they'll need to use, and then attach those policies to the IAM users or groups that require those permissions.\r\n\r\nHow you use AWS Identity and Access Management (IAM) differs, depending on the work you do in Amazon ECR. In most cases, the following basic user types are leveraged for AWS services: \r\n- Service User\r\n- Service Administrator \r\n- IAM Administrator \r\n\r\nAmazon ECR customers are responsible for using AWS Identity and Access Management (IAM) to create an IAM user with an attached policy to enable Amazon ECR permissions. Optionally, customers can choose to create custom policies to attach to the role. Customers can then add administrators to the role with the ability to invoke API's for Amazon ECR administration in accordance with organization-defined role-based access and least privilege principles. ",
             "Supporting Service/Feature": "IAM",
             "Additional Controls for Customer Consideration": ""
+            
+        },
+        {
+            "Customer Activity": "Administration",
+            "Related Controls": "AC-02 (07)\r\nAC-06 (01)\r\nAC-06 (05)\r\nIA-05",
+            "Customer Responsibility": "Amazon ECR customers are responsible for selecting identity-based policies in which account administrators can attach permissions policies to IAM identities (users, groups, and roles) and thereby grant permissions to perform administrative operations on Amazon ECR resources.\r\n\r\nBoth IAM polices and policies attached to Amazon ECR resources can be used to control which users or roles can request Amazon ECR APIs. These two methods of policy definitions can also determine which user can perform administrative actions.\r\n\r\nA list of API actions for Amazon ECR can be found on the public user guide. Customers are responsible for authorizing access to predefined IAM policies, customer IAM policies and API actions to users or roles in accordance with their least privilege and role-based organizational requirements. ",
+            "Supporting Service/Feature": "",
+            "Additional Controls for Customer Consideration": ""
+            
+        },
+        {
+            "Customer Activity": "External Authentication and Single Sign-on (SSO)",
+            "Related Controls": "AC-02 \r\nIA-02\r\nIA-03",
+            "Customer Responsibility": "The Amazon ECR Control Plane is compatible with identity federation using AWS IAM roles. This enables users to authenticate to AWS by assuming a role that administrators have provisioned. Customers accessing AWS using credentials from their organization or a third-party assume a role indirectly. \r\n\r\nAWS support for Kerberos and Active Directory provides the benefits of single sign-on and centralized authentication of database users. AWS users are responsible for choosing to manage and store user credentials either in AWS Directory Service for Microsoft Active Directory or in the customer on-premises Active Directory.",
+            "Supporting Service/Feature": "AWS Directory Service",
+            "Additional Controls for Customer Consideration": "AC-02 (11) \r\nAC-07 (02)\r\nAC-17 (04)\r\nAU-10"
+            
+        },
+        {
+            "Customer Activity": "Identity and Access",
+            "Related Controls": "IA-02",
+            "Customer Responsibility": "Amazon ECR customers are responsible for ensuring IAM users are required to authenticate to AWS using multi-factor authentication in accordance with their organizational requirements for authentication. \r\n\r\nThrough the AWS Console, IAM administrators can create a customer-managed policy that denies all permissions except those required for IAM users to manage their own credentials and MFA devices. A JSON policy template is available on the My Security Credential page of the Console. \r\n\r\nOptionally, customers can leverage compatible third-party MFA capabilities with AWS IAM partners. For additional information, refer to our AWS IAM partners page.",
+            "Supporting Service/Feature": "MFA",
+            "Additional Controls for Customer Consideration": "AC-06 \r\nIA-02 (12) \r\nIA-03 \r\nIA-04 \r\nIA-05 \r\nIA-05 (03) \r\nSRG 5.4.1.2"
+            
+        },
+        {
+            "Customer Activity": "Network",
+            "Related Controls": "CM-07 \r\nCM-07 (01)",
+            "Customer Responsibility": "ECR customers using VPC endpoints to connect to ECR are responsible for configuring ports and protocols in accordance with their organizational requirements. Amazon recommends customers ensure only approved/authorzied ports and protocols are enabled. For more information, refer to https://docs.aws.amazon.com/AmazonECR/latest/userguide/vpc-endpoints.html",
+            "Supporting Service/Feature": "",
+            "Additional Controls for Customer Consideration": ""
+            
+        },
+        {
+            "Customer Activity": "Boundary",
+            "Related Controls": "SC-07",
+            "Customer Responsibility": "Amazon ECR customers are responsible for configuring and documenting their system boundary to include components with established connections hosted outside of AWS in accordance with their organizational requirements. Customers can use Amazon Virtual Private Cloud (Amazon VPC) to create boundaries between resources in their managed instances and control traffic between them, on-premises network, and the internet. For more information, refer to https://docs.aws.amazon.com/AmazonECR/latest/userguide/vpc-endpoints.html",
+            "Supporting Service/Feature": "",
+            "Additional Controls for Customer Consideration": "CM-08\r\nPL-02"
+            
+        },
+        {
+            "Customer Activity": "Network Access and Resource-Based Access Policies",
+            "Related Controls": "AC-06 (03)\r\nAC-17\r\nIA-02",
+            "Customer Responsibility": "Amazon ECR uses resource-based permissions to control access to repositories. Resource-based permissions let you specify which IAM users or roles have access to a repository and what actions they can perform on it. ",
+            "Supporting Service/Feature": "",
+            "Additional Controls for Customer Consideration": "AC-17 (03)\r\nCM-08 (03)\r\nSC-10"
+            
+        },
+        {
+            "Customer Activity": "Firewall",
+            "Related Controls": "CA-03\r\nCM-06\r\nSI-04",
+            "Customer Responsibility": " Amazon ECR uses Amazon VPC network policies to restrict traffic between control plane components to within a single cluster. Customers are responsible for configuring network security and routing of their VPC using NACLs, route tables, and security groups. Refer to the VPC CRG and user guide for additional information.",
+            "Supporting Service/Feature": "",
+            "Additional Controls for Customer Consideration": "AC-06\r\nIA-03 (01)\r\nIR-04 (02)\r\nSA-09 (01)"
+            
+        },
+        {
+            "Customer Activity": "Routing",
+            "Related Controls": "\r\nSC-08",
+            "Customer Responsibility": "Amazon ECR customers can improve the security posture of your VPC by configuring Amazon ECR to use an interface VPC endpoint. VPC endpoints are powered by AWS PrivateLink, a technology that enables you to privately access Amazon ECR APIs through private IP addresses. AWS PrivateLink restricts all network traffic between your VPC and Amazon ECR to the Amazon network. ",
+            "Supporting Service/Feature": "",
+            "Additional Controls for Customer Consideration": "AC-17 (03)\r\nSC-07 (08)\r\nSC-15"
+            
+        },
+        {
+            "Customer Activity": "Audit Logging Analysis",
+            "Related Controls": "AU-06\r\nAU-06 (01)\r\nAU-06 (03)\r\nAU-06 (04)\r\nAU-07\r\nAU-07 (01)",
+            "Customer Responsibility": "Amazon ECR customers can monitor your Amazon ECR API usage with Amazon CloudWatch, which collects and processes raw data from Amazon ECR into readable, near real-time metrics. These statistics are recorded for a period of two weeks, so that you can access historical information and gain perspective on your API usage. Amazon ECR metric data is automatically sent to CloudWatch in one-minute periods.\r\n\r\nAdditionally, Amazon ECR is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, a role, or an AWS service in Amazon ECR. Customer have the capability to capture; all API calls, all actions taken due to the encryption settings on your repositories, all actions taken due to lifecycle policy rules. ",
+            "Supporting Service/Feature": "CloudWatch\r\nCloudTrail",
+            "Additional Controls for Customer Consideration": "AU-03 (01)\r\n IR-05\r\nIR-06\r\nSA-03\r\nSA-15\r\nSI-04 (02)\r\nSI-04 (05)"
+            
+        },
+        {
+            "Customer Activity": "Audit Logging",
+            "Related Controls": "AU-02\r\nAU-02 (03)\r\nAU-03\r\nAU-12",
+            "Customer Responsibility": "Monitoring is an important part of maintaining the reliability, availability, and performance of Amazon ECR and your AWS solutions. AWS recommends that customers collect monitoring data from the resources that make up their AWS ECR solution so that they can more easily debug a multi-point failure if one occurs. \r\n\r\nApplications running on ECR generate logs which are the customer's responsibility to analyze and store. Customers are responsible for choosing to send logs to a destination in their AWS environment or externally. Customers may choose to send application logs to CloudWatch Logs to perform analysis or to a storage solution such as S3 or Glacier, depending on their organizational requirements. ",
+            "Supporting Service/Feature": "CloudWatch Logs \r\nS3\r\nGlacier",
+            "Additional Controls for Customer Consideration": "AC-06 (09)"
+            
+        },
+        {
+            "Customer Activity": "Automated Log Alerts",
+            "Related Controls": "AU-05 (02)",
+            "Customer Responsibility": "Amazon ECR customers are responsible for ensuring CloudWatch and CloudTrail are enabled on their account to leverage automated monitoring tools. CloudWatch Alarms integrates with Amazon SNS, enabling notifications about Amazon ECR events to be sent to end users. Customers are responsible for setting topic policies that restrict who can publish and subscribe to a topic. \r\n\r\nAdditionally, all Amazon ECR API calls being logged by CloudTrail can be viewed in the CloudTrail Console and integrated with CloudWatch Logs, which can be reviewed by users permitted to access the CloudWatch dashboard. Amazon ECR also integrates with Amazon EventBridge, which enables customers to write rules that watch for certain events, and trigger automated actions.",
+            "Supporting Service/Feature": "EventBridge",
+            "Additional Controls for Customer Consideration": "SI-04"
+            
+        },
+        {
+            "Customer Activity": "Performance Monitoring",
+            "Related Controls": "AU-06 (05)",
+            "Customer Responsibility": "Amazon ECR customers can monitor the performance of Amazon ECR with CloudWatch Metrics. Customers are responsible for viewiing performance data through the CloudWatch Metrics Console or CLI and optionally referencing historical data to improve Amazon ECR performance settings. ",
+            "Supporting Service/Feature": "CloudWatch Metrics",
+            "Additional Controls for Customer Consideration": ""
+            
+        },
+        {
+            "Customer Activity": "Log Retention",
+            "Related Controls": "AU-11\r\n",
+            "Customer Responsibility": "Logs pubished to CloudWatch Logs remain stored indefinitely unless the customer chooses to define a offloading frequency. AWS supports the availability of CloudWatch Logs. Customers can choose to offload CloudWatch Logs to S3 or Glacier for long term storage and durability in accordance with their organizational requirements. \r\n\r\nCloudTrail API logs are published to an S3 Bucket designated by the customer are the responsibility of the customer to manage and retain in accordance with their organizational requirements. Customers can choose to use primary and backup storage locations for long term storage and durability using cross-account log delivery or by delivering logs to more than one bucket in the same account. ",
+            "Supporting Service/Feature": "CloudWatch Logs \r\nCloudTrail\r\nS3\r\nGlacier",
+            "Additional Controls for Customer Consideration": "AU-04\r\nAU-09 (02)\r\nCP-09 \r\nCP-09 (03)"
+            
+        },
+        {
+            "Customer Activity": "Data Retention",
+            "Related Controls": "SI-12",
+            "Customer Responsibility": "Amazon ECR customers are responsible for defining data lifecycle management and retention in accordance with their organizational requirements. This is applicable to any data hosted within the container registry and data in other AWS storage services. Customers have the ability to delete images stored by ECR. ",
+            "Supporting Service/Feature": "S3",
+            "Additional Controls for Customer Consideration": ""
+        },
+        {
+            "Customer Activity": "Backup and Availability",
+            "Related Controls": "CP-09\r\nSC-06",
+            "Customer Responsibility": "Amazon ECR stores  customers are responsible for defining data lifecycle management and retention in accordance with their organizational requirements. ECR natively provides ephemeral storage only, which is backed by a 99.9% monthly uptime percentage in the ECR Compute SLA.   ECR customers can choose to mount an EFS volume to their task. Customers are responsible for configuring backups of their EFS volumes in accordance with their organizational data retention and restoration requirements.\r\n\r\nS3 buckets used to support the ECR service are managed by the service team and not configurable by customers. ECR also takes care of creating backups of the images in S3 and is transparent to customer.",
+            "Supporting Service/Feature": "",
+            "Additional Controls for Customer Consideration": "AU-10\r\nSC-27"
+        },
+        {
+            "Customer Activity": "Restoration",
+            "Related Controls": "CP-10\r\nSC-24",
+            "Customer Responsibility": "ECR is responsible for all the data related to customer tasks (e.g. service configuration, task definitions, etc.) and ensures this is available. ",
+            "Supporting Service/Feature": "",
+            "Additional Controls for Customer Consideration": "CM-02 \r\nCP-04"
+        },
+        {
+            "Customer Activity": "API Delete Actions",
+            "Related Controls": "AC-02\r\nAC-05\r\nAC-06\r\nMP-06",
+            "Customer Responsibility": "The list of API actions listed on the user guide summarize Delete actions IAM users can execute for Amazon ECR. Customers are responsible for authorizing access to these API actions to appropriate users/roles in accordance with their organizational requirements.",
+            "Supporting Service/Feature": "",
+            "Additional Controls for Customer Consideration": ""
+        },
+        {
+            "Customer Activity": "Encryption-at-rest",
+            "Related Controls": "SC-28 \r\nSC-28 (01)",
+            "Customer Responsibility": "Amazon ECR stores images in Amazon S3 buckets that Amazon ECR manages. By default, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part and is offered at no additional charge. For more control over the encryption for your Amazon ECR repositories, you can use server-side encryption with customer managed keys (CMKs) stored in AWS Key Management Service (AWS KMS).",
+            "Supporting Service/Feature": "",
+            "Additional Controls for Customer Consideration": ""
+        },
+        {
+            "Customer Activity": "Encryption-in-transit",
+            "Related Controls": "SC-13 \r\nSC-08 \r\nSC-08 (01) \r\nMP-05 \r\nMP-05 (04)",
+            "Customer Responsibility": "The AWS Management Console uses SSL/TLS between the client browser and console service endpoints to protect AWS service management traffic. Traffic is encrypted, data integrity is authenticated, and the client browser authenticates the identity of the console service endpoint by using an X.509 certificate. After an SSL/TLS session is established between the client browser and the console service endpoint, all subsequent HTTP traffic is protected within the SSL/TLS session.",
+            "Supporting Service/Feature": "",
+            "Additional Controls for Customer Consideration": ""
+        },
+        {
+            "Customer Activity": "Encryption-in-transit",
+            "Related Controls": "SC-13 \r\nSC-08 \r\nSC-08 (01) \r\nMP-05 \r\nMP-05 (04)",
+            "Customer Responsibility": "Amazon ECR customers can transfer container images to and from Amazon ECR via HTTPS. If customers require FIPS 140-2 validated cryptographic modules when accessing AWS through a command line interface or an API, use a FIPS endpoint. ",
+            "Supporting Service/Feature": "",
+            "Additional Controls for Customer Consideration": ""
+        },
+        {
+            "Customer Activity": "Endpoint Encryption",
+            "Related Controls": "CM-03 (06) \r\nSC-04 \r\nSC-13",
+            "Customer Responsibility": "FIPS endpoints are available for connections to Amazon ECR. Amazon ECR customers are responsible for choosing the option of Virtual IPs (VIP) with only FIPS-validated cryptographic algorithms.\r\n\r\nCustomers should to utilize the Amazon ECR FIPS API endpoints when supporting FedRAMP workloads to ensure that FIPS 140-2 approved algorithms are being executed by a FIPS 140-2 validated cryptographic module.",
+            "Supporting Service/Feature": "",
+            "Additional Controls for Customer Consideration": "CM-07 \r\nCM-07 (01)\r\nSA-04 (07)"
+        
+        },
+        {
+            "Customer Activity": "Key Management",
+            "Related Controls": "SC-12 \r\nSC-12 (02) \r\nSC-12 (03)",
+            "Customer Responsibility": "Amazon ECR is integrated with KMS to provide customers optional encryption settings to encrypt images stored within the ECR customer Reposotories. Amazon ECR customers can use server-side encryption with customer managed keys (CMKs) stored in AWS Key Management Service (AWS KMS). When you use AWS KMS to encrypt your data, you can either use the default AWS-managed CMK, which is managed by Amazon ECR, or specify your own CMK (referred to as a customer-managed CMK).\r\n\r\nNote: Using KMS to encrypt container instances stored in ECR is optional. ",
+            "Supporting Service/Feature": "KMS",
+            "Additional Controls for Customer Consideration": "IA-05 \r\nIA-05 (13) \r\nSI-04 (24)"
+        },
+        {
+            "Customer Activity": "Scanning",
+            "Related Controls": "RA-05",
+            "Customer Responsibility": "Amazon ECR customers are responsible for scanning the container images stored within the ECR Reposotories. Customer can enable Amazon ECR image scanning to help in identifying software vulnerabilities in your container images. Amazon ECR uses the Common Vulnerabilities and Exposures (CVEs) database from the open source Clair project and provides you with a list of scan findings. You can review the scan findings for information about the security of the container images that are being deployed. ",
+            "Supporting Service/Feature": "Amazon ECR - Image Scanning",
+            "Additional Controls for Customer Consideration": "RA-05 (05)\r\nSI-03"
+        },
+        {
+            "Customer Activity": "Flaw Remediation and Updates",
+            "Related Controls": "SI-02",
+            "Customer Responsibility": "Customers are responsible for vulnerability management and flaw remediation for the container images that are stored within container registeries. Customer can enable Amazon ECR image scanning to help in identifying software vulnerabilities in your container images. \r\n\r\nAdditionally, AWS customers are responsible for reviewing Plans of Action and Milestones provided by AWS on a routine basis to assess residual risk in the context of their of their organizational requirements.",
+            "Supporting Service/Feature": "Amazon ECR - Image Scanning",
+            "Additional Controls for Customer Consideration": "SI-07"
         }
     ],
     "comments": [
