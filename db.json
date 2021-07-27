@@ -47,54 +47,6 @@
             "Supporting Service/Feature": "",
             "Additional Controls for Customer Consideration": "SA-12"
             
-        },
-        {
-            "Customer Activity": "Account Management",
-            "Related Controls": "AC-02\r\nAC-05\r\nAC-06\r\nIA-03",
-            "Customer Responsibility": "Amazon ECR is integrated with IAM to provide ability to securely control access to Amazon ECR including controlling who is authenticated (signed in) and authorized (has permissions) to use the services. By default, AWS Identity and Access Management (IAM) users don't have permission to create or modify Amazon ECR resources, or perform tasks using the Amazon ECR API. To allow IAM users to create or modify resources and perform tasks, customers are responsible for leveraging IAM policies that grant IAM users permissions for the specific resources such as Amazon ECR and API actions they'll need to use, and then attach those policies to the IAM users or groups that require those permissions.\r\n\r\nHow you use AWS Identity and Access Management (IAM) differs, depending on the work you do in Amazon ECR. In most cases, the following basic user types are leveraged for AWS services: \r\n- Service User\r\n- Service Administrator \r\n- IAM Administrator \r\n\r\nAmazon ECR customers are responsible for using AWS Identity and Access Management (IAM) to create an IAM user with an attached policy to enable Amazon ECR permissions. Optionally, customers can choose to create custom policies to attach to the role. Customers can then add administrators to the role with the ability to invoke API's for Amazon ECR administration in accordance with organization-defined role-based access and least privilege principles. ",
-            "Supporting Service/Feature": "IAM",
-            "Additional Controls for Customer Consideration": ""
-            
-        },
-        {
-            "Customer Activity": "Administration",
-            "Related Controls": "AC-02 (07)\r\nAC-06 (01)\r\nAC-06 (05)\r\nIA-05",
-            "Customer Responsibility": "Amazon ECR customers are responsible for selecting identity-based policies in which account administrators can attach permissions policies to IAM identities (users, groups, and roles) and thereby grant permissions to perform administrative operations on Amazon ECR resources.\r\n\r\nBoth IAM polices and policies attached to Amazon ECR resources can be used to control which users or roles can request Amazon ECR APIs. These two methods of policy definitions can also determine which user can perform administrative actions.\r\n\r\nA list of API actions for Amazon ECR can be found on the public user guide. Customers are responsible for authorizing access to predefined IAM policies, customer IAM policies and API actions to users or roles in accordance with their least privilege and role-based organizational requirements. ",
-            "Supporting Service/Feature": "",
-            "Additional Controls for Customer Consideration": ""
-            
-        },
-        {
-            "Customer Activity": "External Authentication and Single Sign-on (SSO)",
-            "Related Controls": "AC-02 \r\nIA-02\r\nIA-03",
-            "Customer Responsibility": "The Amazon ECR Control Plane is compatible with identity federation using AWS IAM roles. This enables users to authenticate to AWS by assuming a role that administrators have provisioned. Customers accessing AWS using credentials from their organization or a third-party assume a role indirectly. \r\n\r\nAWS support for Kerberos and Active Directory provides the benefits of single sign-on and centralized authentication of database users. AWS users are responsible for choosing to manage and store user credentials either in AWS Directory Service for Microsoft Active Directory or in the customer on-premises Active Directory.",
-            "Supporting Service/Feature": "AWS Directory Service",
-            "Additional Controls for Customer Consideration": "AC-02 (11) \r\nAC-07 (02)\r\nAC-17 (04)\r\nAU-10"
-            
-        },
-        {
-            "Customer Activity": "Identity and Access",
-            "Related Controls": "IA-02",
-            "Customer Responsibility": "Amazon ECR customers are responsible for ensuring IAM users are required to authenticate to AWS using multi-factor authentication in accordance with their organizational requirements for authentication. \r\n\r\nThrough the AWS Console, IAM administrators can create a customer-managed policy that denies all permissions except those required for IAM users to manage their own credentials and MFA devices. A JSON policy template is available on the My Security Credential page of the Console. \r\n\r\nOptionally, customers can leverage compatible third-party MFA capabilities with AWS IAM partners. For additional information, refer to our AWS IAM partners page.",
-            "Supporting Service/Feature": "MFA",
-            "Additional Controls for Customer Consideration": "AC-06 \r\nIA-02 (12) \r\nIA-03 \r\nIA-04 \r\nIA-05 \r\nIA-05 (03) \r\nSRG 5.4.1.2"
-            
-        },
-        {
-            "Customer Activity": "Network",
-            "Related Controls": "CM-07 \r\nCM-07 (01)",
-            "Customer Responsibility": "ECR customers using VPC endpoints to connect to ECR are responsible for configuring ports and protocols in accordance with their organizational requirements. Amazon recommends customers ensure only approved/authorzied ports and protocols are enabled. For more information, refer to https://docs.aws.amazon.com/AmazonECR/latest/userguide/vpc-endpoints.html",
-            "Supporting Service/Feature": "",
-            "Additional Controls for Customer Consideration": ""
-            
-        },
-        {
-            "Customer Activity": "Boundary",
-            "Related Controls": "SC-07",
-            "Customer Responsibility": "Amazon ECR customers are responsible for configuring and documenting their system boundary to include components with established connections hosted outside of AWS in accordance with their organizational requirements. Customers can use Amazon Virtual Private Cloud (Amazon VPC) to create boundaries between resources in their managed instances and control traffic between them, on-premises network, and the internet. For more information, refer to https://docs.aws.amazon.com/AmazonECR/latest/userguide/vpc-endpoints.html",
-            "Supporting Service/Feature": "",
-            "Additional Controls for Customer Consideration": "CM-08\r\nPL-02"
-            
         }
     ],
     "comments": [
